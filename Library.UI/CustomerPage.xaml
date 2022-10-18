@@ -1,0 +1,68 @@
+﻿<Page
+    x:Class="Library.UI.CustomerPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Library.UI"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#cceeff" Margin="-1,0,1,0">
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        
+        <ListView x:Name="listItems" BorderThickness="1" BorderBrush="Black"
+                  Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" HorizontalAlignment="Stretch"/>
+        
+        <ComboBox x:Name="cmbSort" Width="151" SelectionChanged="cmbSort_SelectionChanged" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" Margin="293,83,0,0" Height="32">
+            <ComboBoxItem x:Name="SortByTitle" Content="Title A-Z"/>
+            <ComboBoxItem x:Name="SortByTitleReversed" Content="Title Z-A"/>
+            <ComboBoxItem x:Name="SortByPriceLTH" Content="Price low-high"/>
+            <ComboBoxItem x:Name="SortByTitleHTL" Content="Price high-low"/>
+            <ComboBoxItem x:Name="SortByDateOTN" Content="Date old-new"/>
+            <ComboBoxItem x:Name="SortByDateNTO" Content="Date new-old"/>
+        </ComboBox>
+        
+        <Button x:Name="btnBuy" Click="btnBuy_Click" Grid.Column="1" Grid.Row="1" Height="69" Width="77" FontSize="30" Margin="130,0,0,0" ToolTipService.ToolTip="Buy">
+            <SymbolIcon Symbol="Shop"/>
+        </Button>
+        
+        <Button x:Name="btnShowDetails" Grid.Column="1" Grid.Row="1" Height="69" Width="77" FontSize="30" Margin="252,0,0,0" Click="btnShowDetails_Click" ToolTipService.ToolTip="Details">
+            <SymbolIcon Symbol="ShowBcc"/>
+        </Button>
+
+        <RadioButton x:Name="rbAll" Content="All" VerticalAlignment="Top" HorizontalAlignment="Left" Width="129" Checked="RbFilter_Checked"
+                     Grid.Row="0" Grid.Column="0" Margin="313,62,0,0" Height="32"/>
+        <RadioButton x:Name="rbBooks" Content="Only Books" Checked="RbFilter_Checked" Grid.Column="0" Margin="313,132,0,0"
+                     VerticalAlignment="Top" HorizontalAlignment="Left" Height="32" Width="120" />
+        <RadioButton x:Name="rbJournals" Content="Only Journals" VerticalAlignment="Top" HorizontalAlignment="Left" Checked="RbFilter_Checked"
+                     Grid.Row="0" Grid.Column="0" Margin="313,100,0,0" Height="32" Width="120"/>
+        
+        <Button x:Name="btnHome" Grid.Row="0" Grid.Column="0" VerticalAlignment="Top" Click="btnHome_Click" Height="59" Width="74" ToolTipService.ToolTip="Home">
+            <SymbolIcon Symbol="Home"/>
+        </Button>
+        
+        <Button x:Name="btnEdit" Grid.Column="1" Grid.Row="2" Height="69" Width="77" FontSize="30" Click="btnEdit_Click" Margin="130,0,0,0" ToolTipService.ToolTip="Edit">
+            <SymbolIcon Symbol="Edit"/>
+        </Button>
+        
+        <Button x:Name="btnDelete" Grid.Column="1" Margin="252,0,0,0" Grid.Row="2" Height="69" Width="77" FontSize="30" Click="btnDelete_Click" ToolTipService.ToolTip="Delete">
+            <SymbolIcon Symbol="Delete"/>
+        </Button>
+        
+        <Button x:Name="btnBack" Grid.Row="0" Grid.Column="0" Margin="73,0,0,0" VerticalAlignment="Top" Height="59" Width="74" Click="btnBack_Click" ToolTipService.ToolTip="Back">
+            <SymbolIcon Symbol="Back"/>
+        </Button>
+
+        <TextBlock x:Name="textBlock" Grid.Row="0" HorizontalAlignment="Center" TextWrapping="Wrap" FontSize="30" Text="Sort:" VerticalAlignment="Top" Margin="0,18,0,0"/>
+
+    </Grid>
+</Page>
